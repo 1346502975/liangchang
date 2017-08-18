@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	<link rel="stylesheet" type="text/css" href="css/css.css">
+	</head>
+	<body>
+		<header>
+			<div class="odiv">
+				<a href=""><em></em></a>
+			</div>
+			<ul id="u1">
+			   
+		    </ul> 
+		</header>
+		<section>
+			<div class="autoplay">
+				<em class="em1"></em>
+				<em class="em2"></em>
+				<div class="m_unit">
+				  <ul >
+					 
+				     <li><a href="#"><img src="img/0.jpg" alt="" /></a></li>
+				     <li><a href="#"><img src="img/1.jpg" alt="" /></a></li>
+				     <li><a href="#"><img src="img/2.jpg" alt="" /></a></li>
+				     <li><a href="#"><img src="img/3.jpg" alt="" /></a></li>
+				     <li><a href="#"><img src="img/4.jpg" alt="" /></a></li>
+				     
+			      </ul>
+				</div>
+			    <div class="circles">
+			        <ol>
+				        <li class="cur"></li>
+				        <li></li>
+				        <li></li>
+				        <li></li>
+				        <li></li>
+		            </ol>
+		        </div>
+			</div>
+			<ul class="u2">
+				<!--"'<li><img src='"+obj.data[i].goods_thumb+"'/><p>'+obj.data[i].goods_name+'</p><p>'+obj.data[i].goods_desc+'</p><p>'+obj.data[i].price+'</p></li>'"-->
+				
+			</ul>
+		</section>
+		<footer>
+			
+		</footer>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			
+			$.get("http://h6.duchengjiu.top/shop/api_cat.php",function(data){
+				var obj=data;
+				for(var i=0;i<obj.data.length;i++){
+					$("#u1").append('<li><a href="list.html?cat_id=' +obj.data[i].cat_id+ '">'+obj.data[i].cat_name+'</a></li>')
+				}
+			});
+			$.get("http://h6.duchengjiu.top/shop/api_goods.php",function(data){
+				var obj=data;
+				for(var i=0;i<obj.data.length;i++){
+					$(".u2").append('<li><img src="' +obj.data[i].goods_thumb+ '" /><a href="" ><p>' +obj.data[i].goods_name+ '</p></a><p class="two">' +obj.data[i].goods_desc+ '</p><p class="price">' +obj.data[i].price+ '</p></li>')
+				}
+			})
+			
+			
+			//----------------------------------
+			
+			var $autoplay=$(".autoplay");
+			var $m_unit=$(".m_unit")
+			var $imglis=$(".m_unit li");
+			var $cilcleslis = $(".circles ol li");
+			var idx=0;
+			$(".m_unit ul").append($imglis.eq(0).clone());
+		
+		   
+            
+            var timer=setInterval((rightBtnHandler),3000);
+            $autoplay.mouseenter(function(){
+			    clearInterval(timer);
+		    });
+		    $autoplay.mouseleave(function(){
+			timer = setInterval(rightBtnHandler, 2000);
+		});
+            
+            
+             $(".em2").click(function(){
+		    	rightBtnHandler();
+		    });
+		    function rightBtnHandler(){
+			  
+			   if($m_unit.is(":animated")) return;
+			
+			   idx++;
+			   $m_unit.animate({"left" : -1000* idx},500,function(){
+				   if(idx > 4){
+					   idx = 0;
+					   $m_unit.css("left",0);
+				    }
+			    });
+			    changeCircle();
+	     	}
+	        $(".em1").click(function(){
+	        	
+	        	if($m_unit.is(":animated")) return;
+	        	idx--;
+			    if(idx < 0){
+				    idx = 4;
+				  $m_unit.css("left",-5 * 1000);
+			    }
+			    $m_unit.animate({"left" : -1000 * idx},500);
+			    changeCircle();
+	        });
+	        
+	        $cilcleslis.click(function(){
+	        	idx=$(this).index();
+	        	$m_unit.animate({"left" : -1000 * idx},400);
+	        	changeCircle();
+	        })
+	        function changeCircle(){
+	        	var n=idx<=4?idx:0;
+	        	$cilcleslis.eq(n).addClass("cur").siblings().removeClass("cur");
+	        }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,168 @@
+*{ 
+	padding: 0;
+    margin: 0;	
+}
+header{
+	width: 100%;
+}
+header .odiv{
+	background-color: #25292E;
+	height: 56px;
+	width: 100%;overflow: hidden;
+}
+header .odiv em{
+	float: left;
+	height: 38px;
+	width: 95px;
+	background:url(../img/icon.png);
+	margin-left:50px ;
+	margin-top: 8px;
+	
+}
+header .odiv em:hover{
+	opacity: 0.8;
+}
+header #u1{
+	overflow: hidden;
+	margin-left: 68px;
+
+}
+header #u1 li{
+	display: block;
+	float: left;
+	width: 120px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;			
+}
+header #u1 li:hover{
+	background-color: palegoldenrod;
+}
+header #u1 li a{
+	color: black;
+}
+section {
+	overflow: hidden;
+	margin:0 auto;
+	width: 80%;
+	background: skyblue;
+}
+section .autoplay{
+	margin-top: 20px;
+	width: 1000px;
+	height: 475px;
+	background-color: red;
+	overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+}
+section .autoplay .m_unit{
+	position: absolute;
+	width: 9000px;
+	top: 0;
+			left: 0;
+}
+section .autoplay ul{
+	list-style: none;
+}
+section .autoplay ul li{
+	width: 1000px;
+	height: 475px;
+	float: left;		
+}
+section .autoplay ul li img{
+	width: 1000px;
+	height: 475px;	position: absolute;
+}
+.circles{
+	position: absolute;
+	bottom: 10px;
+	right: 400px;
+	width: 200px;
+	height: 18px;	
+}
+.circles ol{
+	list-style: none;
+}
+.circles ol li{
+	float: left;
+	width: 25px;		
+	height: 5px;		
+	margin-right: 10px;
+	opacity: 0.6;	
+	background-color: blue;
+	cursor: pointer;
+}	
+.circles ol .cur{
+	background-color: orange;opacity: 0.6;
+}	
+section .autoplay:hover em{
+	display: block;
+	opacity: 0.9;
+}
+section .autoplay .em1{
+
+	        position: absolute;
+			width: 40px;
+			height: 40px;
+			top: 50%;
+			margin-top: -20px;
+			background-image:url(../img/icon.png);
+			background-position:-148px -639px ;
+			z-index: 999;left: 10px;display: none;
+}
+section .autoplay .em2{
+	        position: absolute;
+			width: 40px;
+			height: 40px;
+			top: 50%;
+			margin-top: -20px;
+			display: none;
+			z-index: 999;right: 10px;
+			background-image:url(../img/icon.png);
+			background-position:-148px -681px ;
+}
+section .u2{
+	margin-top:20px ;
+	margin-left: 18px;
+}
+section .u2 li{
+	display: block;
+	width: 330px;
+	height: 500px;
+	background: peru;
+	float:left;
+	margin-left: 15px;
+	margin-top: 10px;
+	text-align: center;
+	position: relative;
+	text-decoration: none;
+}
+
+section .u2 li img{
+	width: 330px;
+}
+section .u2 li img:hover{
+	opacity: 0.8;
+}
+section .u2 li p{
+	text-align: center;
+	
+}
+.price{
+	background: indianred;
+	font-size: 16px;
+	color: white;
+	position: absolute;
+	top:480px;
+	width:330px ;
+}
+.two{
+	font-size: 12px;
+}
+footer{
+	width: 100%;
+	height: 300px;
+	background-color: orange;
+	margin-top: 15px;
+}
